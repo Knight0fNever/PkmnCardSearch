@@ -131,8 +131,6 @@ function createHTML(cards) {
   imgContainer.innerHTML = generatedHTML;
 }
 
-function pagination() {}
-
 function parse_link_header(header) {
   if (header.length === 0) {
     throw new Error("input must not be of zero length");

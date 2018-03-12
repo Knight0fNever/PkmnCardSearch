@@ -27,3 +27,7 @@ img[data-src] {
 #page-buttons {
   padding-top: 1.5em;
 }
+
+img:hover {
+  transform: scale(1.5);
+}
