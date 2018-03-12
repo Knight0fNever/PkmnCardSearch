@@ -14,8 +14,24 @@
 
 <body>
   <nav class="navbar fixed-top navbar-light bg-light">
-    <span class="navbar-brand mx-auto">Pokemon Card Library</span>
+    <span class="navbar-brand">Pokemon Card Library</span>
   </nav>
+
+  <div id="header" class="container-fluid">
+    <div id="headerRow" class="row text-center headerRow">
+      <div class="col-md col-headerTitle">
+        <span class="h3 text-white" id="headTitle">Pokemon Card Library</span>
+      </div>
+    </div>
+    <div id="headerRow" class="row text-center headerRow">
+      <div class="col-md my-0">
+        <span class="text-white" id="headDesc">Use the filters below to find the desired card.</span>
+      </div>
+    </div>
+  </div>
+
+
+
   <div class="container" id="form-container">
     <!-- Search Fields -->
     <form id="searchForm">
@@ -27,7 +43,7 @@
           <button name="advancedBtn" class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#advanced" aria-expanded="false"
             aria-controls="multiCollapseExample2">Advanced Search</button>
         </p>
-        
+
         <div class="row">
           <div class="col">
             <div id="advanced" class="collapse multi-collapse">
@@ -97,8 +113,8 @@
       <button id="resetBtn" class="btn">Reset</button>
     </div>
     <div class="text-center" id="page-buttons">
-        <button class="btn" id="prevBtn">Prev. Page</button>
-        <button class="btn" id="nextBtn">Next Page</button>
+      <button class="btn" id="prevBtn">Prev. Page</button>
+      <button class="btn" id="nextBtn">Next Page</button>
     </div>
   </div>
   <div id="pages" class="container text-center">
