@@ -3,6 +3,8 @@ let loadBtn = document.getElementById("loadBtn");
 let searchForm = document.getElementById("searchForm");
 let prevBtn = document.getElementById("prevBtn");
 let nextBtn = document.getElementById("nextBtn");
+let nameBar = document.getElementById("name");
+let resetBtn = document.getElementById("resetBtn");
 prevBtn.hidden = true;
 nextBtn.hidden = true;
 
@@ -13,7 +15,6 @@ let nextPageNum = page + 1;
 function load(query) {
   ourRequest.open("GET", query);
   ourRequest.onload = function() {
-
     let data = JSON.parse(ourRequest.responseText);
     let headers = ourRequest.getResponseHeader("link");
     let links = "";
@@ -24,7 +25,6 @@ function load(query) {
       let nextLink = links.next;
       // console.log('Next Page: ' + nextLink);
       // console.log('Prev Page: ' + prevLink);
-
     } else {
       console.log("Only 1 page.");
       nextBtn.hidden = true;
@@ -45,16 +45,15 @@ loadBtn.addEventListener("click", () => {
   load(queryBuilder(1));
 });
 
-
 prevBtn.addEventListener("click", () => {
   load(queryBuilder(parseInt(prevPageNum)));
   nextPageNum--;
   prevPageNum = nextPageNum - 1;
-  if(prevPageNum < 1) {
+  if (prevPageNum < 1) {
     prevBtn.hidden = true;
   }
-  console.log('Next Page: ' + nextPageNum);
-  console.log('Prev. Page: ' + prevPageNum);
+  console.log("Next Page: " + nextPageNum);
+  console.log("Prev. Page: " + prevPageNum);
 });
 
 nextBtn.addEventListener("click", () => {
@@ -62,19 +61,19 @@ nextBtn.addEventListener("click", () => {
   nextPageNum++;
   prevPageNum = nextPageNum - 2;
   prevBtn.hidden = false;
-  console.log('Next Page: ' + nextPageNum);
-  console.log('Prev. Page: ' + prevPageNum);
+  console.log("Next Page: " + nextPageNum);
+  console.log("Prev. Page: " + prevPageNum);
 });
 
 function getPageNumbers(variable, url) {
-  let uri = url.split('&');
-  for(let i = 0; i < uri.length; i++) {
-    let pair = uri[i].split('=');
-    if(decodeURIComponent(pair[0]) == variable) {
+  let uri = url.split("&");
+  for (let i = 0; i < uri.length; i++) {
+    let pair = uri[i].split("=");
+    if (decodeURIComponent(pair[0]) == variable) {
       return decodeURIComponent(pair[1]);
     }
   }
-  console.log('Query variable %s not found', variable)
+  console.log("Query variable %s not found", variable);
 }
 
 function queryBuilder(page) {
@@ -114,7 +113,7 @@ function queryBuilder(page) {
     "&" +
     resistances +
     "&" +
-    abilityName + 
+    abilityName +
     "&" +
     pageVal;
   // console.log(result);
@@ -152,8 +151,6 @@ function parse_link_header(header) {
   return links;
 }
 
-let nameBar = document.getElementById("name");
-
 nameBar.addEventListener("keyup", function(event) {
   // Cancel the default action, if needed
   event.preventDefault();
@@ -162,4 +159,8 @@ nameBar.addEventListener("keyup", function(event) {
     // Trigger the button element with a click
     loadBtn.click();
   }
+});
+
+resetBtn.addEventListener("click", () => {
+  searchForm.reset();
 });
