@@ -1,0 +1,29 @@
+body {
+  padding-top: 1.5em;
+}
+
+#img-container {
+  padding-top: 1.5em;
+}
+
+img {
+  padding: 5px;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+img[data-src] {
+  opacity: 0;
+}
+
+#advancedBtn {
+  padding-top: 1.5em;
+}
+
+#form-container {
+  padding-top: 3em;
+}
+
+#page-buttons {
+  padding-top: 1.5em;
+}
